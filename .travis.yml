@@ -13,5 +13,5 @@ before_install:
     - conda install --yes python=3.6
 
 script:
-    - python test_hash.py
-    - bash test_hash.sh
+    - python unittest_hash_functions.py
+    - bash bashtest_hash.sh
