@@ -95,6 +95,7 @@ grep search test_rolling_chain_rand.*.txt | cut -d " " -f2,3 | python scatter.py
 ![](rolling_chain_search_time.png)
 
 #### Ascii with Chained Hash
+
 ```bash
 for M in $(seq 1000 1000 10000); do
     python hash_tables.py --size 10000 --hash_method ascii --collision_strategy chain --input rand_words.txt --key_nums $M --search_nums 100 > test_ascii_chain_rand.$M.txt
