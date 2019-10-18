@@ -13,7 +13,7 @@ def h_ascii_sum(key, N):
         raise TypeError('First Argument Must Be A String')
         return None
     if type(N) != int:
-        raise TypeError('Second Argument Must Be An Interger')
+        raise TypeError('Second Argument Must Be An Integer')
         return None
 
     s = 0
@@ -34,13 +34,13 @@ def h_polynomial_rolling(key, N, p=53, m=2**64):
         raise TypeError('First Argument Must Be A String')
         return None
     if type(N) != int:
-        raise TypeError('Second Argument Must Be An Interger')
+        raise TypeError('Second Argument Must Be An Integer')
         return None
     if type(p) != int:
-        raise TypeError('Third Argument Must Be An Interger - default:53')
+        raise TypeError('Third Argument Must Be An Integer - default:53')
         return None
     if type(m) != int:
-        raise TypeError('Fourth Argument Must Be An Interger - default:2^64')
+        raise TypeError('Fourth Argument Must Be An Integer - default:2^64')
         return None
 
     s = 0
