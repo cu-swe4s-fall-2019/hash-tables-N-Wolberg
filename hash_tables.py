@@ -121,12 +121,31 @@ class LPHashTable:
         return None
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Implementation of hash tables',
+        prog='hash_tables')
 
-    N = int(sys.argv[1])
-    hash_alg = sys.argv[2]
-    collision_strategy = sys.argv[3]
-    data_file_name= sys.argv[4]
-    keys_to_add = int(sys.argv[5])
+    parser.add_argument('--size', type=int,
+                        help='Size of hash table', required=True)
+    parser.add_argument('--hash_method', type=str,
+                        help='ascii, rolling, python', required=True)
+    parser.add_argument('--collision_strategy', type=str,
+                        help='Collision strategy', required=True)
+    parser.add_argument('--input', type=str,
+                        help='Name of the input file', required=True)
+    parser.add_argument('--key_nums', type=int,
+                        help='Keys to be added', required=True)
+    parser.add_argument('--search_nums', type=int,
+                        help='Iterations of searching', required=True)
+
+    args = parser.parse_args()
+
+    N = args.size
+    hash_alg = args.hash_method
+    collision_strategy = args.collision_strategy
+    data_file_name = args.input
+    keys_to_add = args.key_nums
+    keys_to_search = args.search_nums
 
     ht = None
 
