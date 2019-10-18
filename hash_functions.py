@@ -1,15 +1,44 @@
 import sys
 
 def h_ascii_sum(key, N):
+    '''
+    Uses a string(key) and sums the ascii representation and returns the hash
+    value according to the appropriate reducer(N)
+    '''
+
+    if type(key) != str:
+        raise TypeError('First Argument Must Be A String')
+        return None
+    if type(N) != int:
+        raise TypeError('Second Argument Must Be An Interger')
+        return None
+
     s = 0
     for i in range(len(key)):
         s += ord(key[i])
     return s % N
 
 def h_polynomial_rolling(key, N, p=53, m=2**64):
-    '''  p a prime number roughly equal to the number of characters in the input alphabe 
-         m should be a large number, since the probability of two random strings colliding is 
-           about 1/m. Sometimes m=2^64 is chosen'''
+    '''
+    Uses a string(key) and sums a scaled ascii representation and returns the hash
+    value according to the appropriate reducer(N)
+    p - a prime number roughly equal to the number of characters in the input alphabet
+    m - should be a large number, since the probability of two random strings colliding is
+      about 1/m. Sometimes m=2^64 is chosen
+    '''
+    if type(key) != str:
+        raise TypeError('First Argument Must Be A String')
+        return None
+    if type(N) != int:
+        raise TypeError('Second Argument Must Be An Interger')
+        return None
+    if type(p) != int:
+        raise TypeError('Third Argument Must Be An Interger - default:53')
+        return None
+    if type(m) != int:
+        raise TypeError('Fourth Argument Must Be An Interger - default:2^64')
+        return None
+
     s = 0
     for i in range(len(key)):
         s += ord(key[i]) * p**i

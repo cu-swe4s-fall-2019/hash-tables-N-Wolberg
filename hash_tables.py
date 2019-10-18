@@ -4,30 +4,61 @@ import time
 import random
 
 class LinearProbe:
-    def __init__(self, N, hash_fucntion):
-        self.hash_fucntion = hash_fucntion
+    def __init__(self, N, hash_function):
+        self.hash_function = hash_function
         self.N = N
 
     def add(self, key, value):
-        start_hash = self.hash_fucntion(key, self.N)
-        pass
+        start_hash = self.hash_function(key, self.N)
+        if (start_hash is None):
+            return None
+
+        for i in range(self.N):
+            temp_hash = (start_hash + i) % self.N
+            if (self.T[temp_hash] is None):
+                self.T[temp_hash] = (key, value)
+                self.M += 1
+                return True
+        return False
 
     def search(self, key):
-        start_hash = self.hash_fucntion(key, self.N)
-        pass
+        start_hash = self.hash_function(key, self.N)
+        if (start_hash is None):
+            return None
+
+        for i in range(self.N):
+            temp_hash = (start_hash + i) % self.N
+            if (self.T[temp_hash] is None):
+                return None
+            if (self.T[temp_hash][0] == key):
+                return self.T[temp_hash][1]
+        return None
 
 class ChainedHash:
-    def __init__(self, N, hash_fucntion):
-        self.hash_fucntion = hash_fucntion
+    def __init__(self, N, hash_function):
+        self.hash_function = hash_function
         self.N = N
+        self.T = [[] for i in range(N)]
+        self.M = 0
 
     def add(self, key, value):
-        start_hash = self.hash_fucntion(key, self.N)
-        pass
+        start_hash = self.hash_function(key, self.N)
+        if (start_hash is None):
+            return False
+
+        self.T[start_hash].append((key, value))
+        self.M += 1
+        return True
 
     def search(self, key):
-        start_hash = self.hash_fucntion(key, self.N)
-        pass
+        start_hash = self.hash_function(key, self.N)
+        if (start_hash is None):
+            return None
+
+        for k, v in self.T[start_hash]:
+            if (key == k):
+                return v
+        return None
 
 
 def reservoir_sampling(new_val, size, V):
