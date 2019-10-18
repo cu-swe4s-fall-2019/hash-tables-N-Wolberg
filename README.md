@@ -28,25 +28,25 @@ To use this package, you need to have [Python3](https://www.python.org/download/
 
 #### h_ascii with random words
 ```bash
-python hash_functions.py --input rand_words.txt --hash_method ascii | python scatter.py --out_file images/ascii_hash_function_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+python hash_functions.py --input rand_words.txt --hash_method ascii | python scatter.py --out_file ascii_hash_function_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
 ```
-![]{ascii_hash_function_rand.png)
+![](ascii_hash_function_rand.png)
 
 #### h_ascii with non random words
 ```bash
-python hash_functions.py --input non_rand_words.txt --hash_method ascii | python scatter.py --out_file images/ascii_hash_function_non_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+python hash_functions.py --input non_rand_words.txt --hash_method ascii | python scatter.py --out_file ascii_hash_function_non_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
 ```
 ![](ascii_hash_function_non_rand.png)
 
 #### h_rolling with random words
 ```bash
-python hash_functions.py --input rand_words.txt --hash_method rolling | python scatter.py --out_file images/rolling_hash_function_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+python hash_functions.py --input rand_words.txt --hash_method rolling | python scatter.py --out_file rolling_hash_function_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
 ```
 ![](rolling_hash_function_rand.png)
 
 #### h_rolling with non random words
 ```bash
-python hash_functions.py --input non_rand_words.txt --hash_method rolling | python scatter.py --out_file images/rolling_hash_function_non_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+python hash_functions.py --input non_rand_words.txt --hash_method rolling | python scatter.py --out_file rolling_hash_function_non_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
 ```
 ![](rolling_hash_function_non_rand.png)
 

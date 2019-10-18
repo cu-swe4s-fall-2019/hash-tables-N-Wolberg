@@ -51,6 +51,9 @@ def h_polynomial_rolling(key, N, p=53, m=2**64):
 
 
 def h_python(key, N):
+    '''
+    Pythons default hash method
+    '''
     return hash(key) % N
 
 

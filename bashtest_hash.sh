@@ -62,3 +62,11 @@ done
 grep add test_ascii_chain_rand.*.txt | cut -d " " -f2,3 | python scatter.py --out_file ascii_chain_add_time.png --x_label "Load Factor" --y_label "Insert Time"
 grep search test_ascii_chain_rand.*.txt | cut -d " " -f2,3 | python scatter.py --out_file ascii_chain_search_time.png --x_label "Load Factor" --y_label "Search Time"
 rm test_*.txt
+
+python hash_functions.py --input rand_words.txt --hash_method ascii | python scatter.py --out_file ascii_hash_function_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+
+python hash_functions.py --input non_rand_words.txt --hash_method ascii | python scatter.py --out_file ascii_hash_function_non_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+
+python hash_functions.py --input rand_words.txt --hash_method rolling | python scatter.py --out_file rolling_hash_function_rand.png --x_label "Hashed Word" --y_label "Hashed Value"
+
+python hash_functions.py --input non_rand_words.txt --hash_method rolling | python scatter.py --out_file rolling_hash_function_non_rand.png --x_label "Hashed Word" --y_label "Hashed Value"

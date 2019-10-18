@@ -16,7 +16,7 @@ class TestHash(unittest.TestCase):
         self.assertEqual(str(ctx.exception), 'First Argument Must Be A String')
         with self.assertRaises(TypeError) as ctx:
             hash_functions.h_ascii_sum("test", None)
-        self.assertEqual(str(ctx.exception), 'Second Argument ' +
+        self.assertEqual(str(ctx.exception), 'Second Argument '
                                              'Must Be An Integer')
 
     def test_h_rolling(self):
